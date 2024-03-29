@@ -1,44 +1,26 @@
-// //your JS code here. If required.
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
-let bandList=document.querySelector("#band");
+let ignoreArticle = (str) => {
+  let newarr = str.toLowerCase().split(" ")
+  let ans = []
+  for(let i of newarr){
+    if(i != 'a' && i != 'an' && i != 'the'){
+      ans.push(i)
+    }
+  }
+  return ans.join(" ")
+}  
 
-function bandSort(a, b) {
-    const ignoreWord = ['a', 'an', 'the'];
-    const getTitle = (band) => band.replace(/^(the |an |a )/i, '');
-    const titleA = getTitle(a);
-    const titleB = getTitle(b);
-
-    return titleA.localeCompare(titleB);
-}
-
-// bands.sort(bandSort);
-
-// bands.forEach((element) => {
-//     let listItem = document.createElement('li');
-//     listItem.textContent = element;
-//     bandList.appendChild(listItem);
-
-//     // Create and append horizontal line
-//     let horizontal = document.createElement('hr');
-// 	horizontal.classList ="lineHr"
-//     bandlist.appendChild(horizontal);
-// });
-let unorderedList = document.querySelector("#band");
-
-function customSort(a, b) {
-    const ignoreWord = ['a', 'an', 'the'];
-    const getTitle = (band) => band.replace(/^(the |an |a )/i, '');
-    const titleA = getTitle(a);
-    const titleB = getTitle(b);
-
-    return titleA.localeCompare(titleB);
-}
-
-// bands.sort(customSort);
-// bands.sort(customSort);
-bands.forEach((t)=>{
-	let ulLi=document.createElement("ul");
-	ulLi.document.innerTextContent(t);
-	bandList.appendChild(ulLi);
+bands.sort(function(a,b){
+  let str1 = ignoreArticle(a)
+  let str2 = ignoreArticle(b)
+  return str1.localeCompare(str2)
 })
+
+let unorderedList=document.querySelector("#band");
+
+bands.forEach((t)=>{
+  let x=document.createElement('li');
+  x.innerText=t;
+  unorderedList.appendChild(x);
+});
