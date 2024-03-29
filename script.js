@@ -17,7 +17,7 @@ bands.sort(function(a,b){
   return str1.localeCompare(str2)
 })
 
-let unorderedList=document.querySelector("#band");
+let unorderedList=document.querySelector("#bands");
 
 bands.forEach((t)=>{
   let x=document.createElement('li');
