@@ -37,14 +37,8 @@ function customSort(a, b) {
 
 // bands.sort(customSort);
 // bands.sort(customSort);
-bands.sort(bandSort);
-bands.forEach((element) => {
-    let listItem = document.createElement('li');
-    listItem.textContent = element;
-    bandList.appendChild(listItem);
-
-    // Create and append horizontal line
-    let horizontal = document.createElement('hr');
-	horizontal.classList ="lineHr"
-    unorderedList.appendChild(horizontal);
-});
+bands.forEach((t)=>{
+	let ulLi=document.createElement("ul");
+	ulLi.document.innerTextContent(t);
+	bandList.appendChild(ulLi);
+})
