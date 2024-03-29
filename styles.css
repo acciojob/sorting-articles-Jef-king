@@ -1,1 +1,5 @@
-/*  your css code here. If applicable */
+.articles{
+	margin: auto 20px auto 20px;
+	display:flex;
+	justify-content:center;
+}
